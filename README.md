@@ -91,9 +91,7 @@ Monitor the ping requests and their responses in Wireshark by observing the capt
 </p>
 <br />
 
-<p>
-Open the Network Security Group your Ubuntu VM is using and disable incoming (inbound) ICMP traffic:
-</p>
+<p>Go to the Network Security Group settings for your Ubuntu VM in Azure. Find the rules for incoming traffic and disable (turn off) the rule that allows ICMP (ping) traffic to come in.</p>
 <img src="https://i.imgur.com/cPtvwBx.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 
@@ -112,16 +110,15 @@ Open the Network Security Group your Ubuntu VM is using and disable incoming (in
 </p>
 <br />
 
-<p>
-Back in the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity
+
+<p>Return to your Windows 10 VM. Continue observing the ICMP traffic in Wireshark and monitor the command line for any changes in the ping activity.
 </p>
 <p>  
 <img src="https://i.imgur.com/6IkGjgN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-<p>
-Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using
+<p>Go back to your Ubuntu VM's Network Security Group settings and turn back on the permission for incoming ICMP traffic.
 </p>
 <p>
 <img src="https://i.imgur.com/hLvCuMG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -129,105 +126,83 @@ Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using
 <br />
 
 <p>
-Back in the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity (should start working)
-</p>
+Return to your Windows 10 VM, monitor the ICMP packets in WireShark, and check the Command Prompt's ping operation, which should now be successfully sending and receiving packets.</p>
 <p>
 <img src="https://i.imgur.com/xa3wpqq.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Stop the ping activity
-</p>
+End the ongoing ping command by pressing `Ctrl + C` in the Command Prompt window.</p>
 <p>
 <img src="https://i.imgur.com/5vh29Fb.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Back in Wireshark, filter for SSH traffic only:
-</p>
+In Wireshark, apply a filter to show only SSH traffic by entering `ssh` in the filter bar and pressing Enter.</p>
 <p>
 <img src="https://i.imgur.com/YVan6HT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-From your Windows 10 VM, “SSH into” the Ubuntu Virtual Machine (via its private IP address) and notice the activity that occurs in Wireshark when entering the password to connect to the Ubuntu VM</p>
+From your Windows 10 virtual machine, use an SSH client to connect to your Ubuntu VM using its private IP address. Pay attention to Wireshark on your Windows VM to observe the network activity during the SSH connection setup, especially when you enter the password to log in to the Ubuntu VM.</p>
 <p>
 <img src="https://i.imgur.com/BMzNR4K.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-<p> 
-  Observe the activity that occurs once successfully connected into Ubuntu.</p>
-<p>
+<p>Once you've successfully connected to your Ubuntu VM via SSH, monitor and analyze the network activity displayed in Wireshark to understand what happens during an active SSH session.</p>
 <p>
 <img src="https://i.imgur.com/nkK8e9P.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-<p>
-  Exit the SSH connection by typing ‘exit’ and pressing [Enter]
-</p>
-
+<p>To close the SSH session, simply type `exit` and then press the [Enter] key.</p>
 <img src="https://i.imgur.com/a0mufR0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Back in Wireshark, filter for DHCP traffic only
-</p>
+In Wireshark, apply a filter to display only DHCP traffic by entering "dhcp" in the filter bar.</p>
 <p>
 <img src="https://i.imgur.com/ikQdqx1.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-<p>
-From your Windows 10 VM, attempt to issue your VM a new IP address from the command line (ipconfig /renew)
-Observe the DHCP traffic appearing in WireShark
-</p>
+<p>On your Windows 10 VM, open the Command Prompt and run the command <code>ipconfig /renew</code> to request a new IP address for your machine.</p>
 <p>
 <img src="https://i.imgur.com/KcW8DrY.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Back in Wireshark, filter for DNS traffic only
-</p>
+In Wireshark, apply a filter to display only DNS traffic by entering "dns" into the filter bar.</p>
 <p>
 <img src="https://i.imgur.com/tGO1eSE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-<p>
-From your Windows 10 VM within a command line, use nslookup to see what google.com and disney.com’s IP addresses are
-</p>
+<p>Open the command line on your Windows 10 virtual machine and enter the commands <code>nslookup google.com</code> and <code>nslookup disney.com</code> to find out the IP addresses of google.com and disney.com, respectively.</p>
 <p>
 <img src="https://i.imgur.com/YMpASho.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-<p>
-Observe the DNS traffic being show in WireShark
-</p>
+<p>While in Wireshark, watch the DNS traffic to see how the DNS queries for the websites you looked up are displayed.</p>
 <p>
 <img src="https://i.imgur.com/AZkQiix.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-<p>
-Back in Wireshark, filter for RDP traffic only (tcp.port == 3389). Observe the immediate non-stop spam of traffic
-</p>
+<p>Return to Wireshark and apply the filter for RDP traffic using <code>tcp.port == 3389</code>. Notice the continuous flood of traffic that appears.</p>
 <p>
 <img src="https://i.imgur.com/n2m7GY8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-<p>
-Notice the RDP (protocol) is constantly showing a live stream from one computer to another, which is why the traffic is always being transmitted.
-</p>
-<p>
+<p>Observe that the RDP protocol maintains a continuous connection, resulting in a steady stream of data transmission between the two computers.</p>
 <img src="https://i.imgur.com/yxHKPOd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
