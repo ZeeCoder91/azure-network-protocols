@@ -36,23 +36,21 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2>Actions and Observations</h2>
 
 <p>
-Create a Resource Group. Create a Windows 10 Virtual Machine and while creating the VM, select the previously created Resource Group and allow it to create a new Virtual Network (Vnet) and Subnet. Then, create a Linux (Ubuntu) and select the previously created Resource Group and Vnet. Observe Your Virtual Network within Network Watcher (as seen in abpve photo).
-</p>
+First, create a Resource Group in Azure to organize your resources. Next, set up a Windows 10 Virtual Machine (VM). During setup, choose the Resource Group you made earlier and let Azure create a new Virtual Network (Vnet) and Subnet for this VM. After that, create a Linux (Ubuntu) VM, again selecting the same Resource Group and this time, the existing Vnet. Finally, use Network Watcher in Azure to view and check the setup of your Virtual Network, ensuring both VMs are correctly configured and connected within the same network. This step helps manage and monitor your virtual network environment efficiently.</p>
 <p>
 <img src="https://i.imgur.com/Ks4Q5bz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Grab your Public IP Address from Microsoft Azure.
+Find and jot down your Public IP Address from the Microsoft Azure portal.
 </p>
 <p>
 <img src="https://i.imgur.com/70uIcho.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-<p>
-  Use Remote Desktop into your Windows 10 virtual machine. 
+<p>Connect to your Windows 10 virtual machine using Remote Desktop.
 </p>
 <p>
 <img src="https://i.imgur.com/MCYXVTO.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
@@ -60,39 +58,34 @@ Grab your Public IP Address from Microsoft Azure.
 <br />
 
 <p>
-Download and Intall Wireshark with all the default settings. 
-</p>
+Download and install Wireshark, accepting the default settings throughout the installation process.</p>
 <p>
 <img src="https://i.imgur.com/IRnG3zV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Open Wireshark and filter for ICMP traffic only.
-</p>
+Launch Wireshark, then enter "icmp" into the filter bar to exclusively display ICMP traffic.</p>
 <p>
 <img src="https://i.imgur.com/s5YdUbp.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Retrieve the private IP address of the Ubuntu VM and attempt to ping it from within the Windows 10 VM</p>
-<p>
+Locate the private IP address of your Ubuntu Virtual Machine. Next, on your Windows 10 Virtual Machine, open the Command Prompt and send a ping request to the Ubuntu VM using its private IP address.<p>
 <img src="https://i.imgur.com/i9j2yWr.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Observe ping requests and replies within WireShark
-</p>
+Monitor the ping requests and their responses in Wireshark by observing the captured ICMP traffic.</p>
 <p>
 <img src="https://i.imgur.com/tkh1mxR.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Initiate a perpetual/non-stop ping from your Windows 10 VM to your Ubuntu VM
-</p>
+<p>Start a continuous ping to the Ubuntu VM by executing <code>ping -t [Ubuntu VM's IP address]</code> from your Windows 10 VM. This command keeps the ping active without stopping.</p>
 <p>
 <img src="https://i.imgur.com/tVT63iN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
