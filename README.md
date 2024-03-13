@@ -202,12 +202,7 @@ In Wireshark, apply a filter to display only DNS traffic by entering "dns" into 
 </p>
 <br />
 
-<p>Observe that the RDP protocol maintains a continuous connection, resulting in a steady stream of data transmission between the two computers.</p>
+<p>Final Step: Observe that the RDP protocol maintains a continuous connection, resulting in a steady stream of data transmission between the two computers.</p>
 <img src="https://i.imgur.com/yxHKPOd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/UDawVdl.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
